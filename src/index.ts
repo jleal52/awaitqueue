@@ -33,7 +33,7 @@ export class AwaitQueueStoppedError extends Error
 {
 	constructor(message?: string)
 	{
-		super(message ?? 'AwaitQueue stopped');
+		super(message || 'AwaitQueue stopped');
 
 		this.name = 'AwaitQueueStoppedError';
 
@@ -54,7 +54,7 @@ export class AwaitQueueRemovedTaskError extends Error
 {
 	constructor(message?: string)
 	{
-		super(message ?? 'AwaitQueue task removed');
+		super(message || 'AwaitQueue task removed');
 
 		this.name = 'AwaitQueueRemovedTaskError';
 
@@ -83,7 +83,7 @@ export class AwaitQueue
 
 	async push<T>(task: AwaitQueueTask<T>, name?: string): Promise<T>
 	{
-		name = name ?? task.name;
+		name = name || task.name;
 
 		logger.debug(`push() [name:${name}]`);
 
